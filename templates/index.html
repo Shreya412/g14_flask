@@ -1,0 +1,68 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload CSV Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        /* h2 {
+            text-align: center;
+        } */
+        form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="file"] {
+            display: block;
+            margin-bottom: 10px;
+        }
+        label {
+            margin-bottom: 10px;
+            display: block;
+        }
+        select {
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <h2>Upload CSV File</h2>
+        <input type="file" name="file" accept=".csv" required><br><br>
+        <label for="options">Select an option:</label>
+        <select id="options" name="options">
+            <option value="app_gen">app-gen</option>
+            <option value="exp1">Exp 1</option>
+            <option value="exp2">Exp 2</option>
+            <option value="exp3">Exp 3</option>
+            <option value="exp4">Exp 4</option>
+        </select><br><br>
+        <button type="submit">Upload and Process</button>
+    </form>
+</body>
+</html>
