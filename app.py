@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, send_file
+from flask import Flask, render_template, request, send_file, send_from_directory
 import os
 from utils.utils import app_gen, exp1, exp2, exp3, exp4  # Adjust import as necessary
 import pandas as pd
@@ -56,6 +56,10 @@ def upload_file():
 
         # Send the results file
         return send_file(results_csv_path, as_attachment=True)
+
+@app.route('/uploads/<filename>')
+def uploaded_file(filename):
+    return send_from_directory('uploads', filename)
 
 if __name__ == '__main__':
     if not os.path.exists(UPLOAD_FOLDER):
