@@ -147,8 +147,9 @@
     <div class="container">
         <header>
             <p>This is an analytical experiment to analyze the performance of inference techniques. Each experiment is a function of five parameters, representing cross sections, and the output is a single scalar representing the eigenvalue.</p>
-            <p>All experiments are performed at a reference parameter value of zero. The parameters are zero-mean with the covariance structure <a href="{{ url_for('static', filename='uploads/Covariance.csv') }}">here</a>.</p>
+            <p>All cross-section parameter variations are assumed to be deviations from reference values, assumed here to be zero, with the covariance structure <a href="{{ url_for('static', filename='uploads/Covariance.csv') }}">here</a>.</p>
             <p>Upon selection, each of the four experiments will reveal a corresponding eigenvalue measurement along with its uncertainty.</p> 
+            <p>The measurements are calculated at the true value for the cross sections, which isn't provided with this benchmark. The true value is selected to be statistically consistent with the prior.</p> 
         </header>
         <div class="menu">
             <div class="instructions">
