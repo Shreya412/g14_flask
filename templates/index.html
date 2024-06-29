@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Upload CSV Form</title>
+    <title>Performance Benchmark for Error Recovery and Experimental Coverage</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,7 +12,6 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
         }
         .container {
             display: grid;
@@ -26,6 +25,9 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 58px;
+            margin-bottom: 58px;
+            background-color: floralwhite;
         }
         header {
             grid-area: header;
@@ -121,19 +123,19 @@
             var measurementData = document.getElementById('measurement-data');
             switch (option) {
                 case 'app_gen':
-                    measurementData.innerHTML = "Sensitivity Profile: [-0.00420599608217405    -0.0190549303841221    -0.00390352721826810    -0.0169684434594309    -0.0101529705271551]";
+                    measurementData.innerHTML = "Sensitivity Profile: [-0.0552972267411113    -0.267872674955361    -0.0244746010289696    -0.239827883018197    -0.114968100530782]";
                     break;
                 case 'exp1':
-                    measurementData.innerHTML = "Exp 1 Measurement data: &mu; = 0.999389145499616, &sigma; = 0.001 <br> <br> Sensitivity Profile: [-0.00149924788719443    -0.00679222318825020    -0.00139143138040428    -0.00604848471289596    -0.00361907603197687]";
+                    measurementData.innerHTML = "Exp 1 Measurement data: &mu; = 0.999389145499616, &sigma; = 0.001 <br> <br> Sensitivity Profile: [-0.0198540582543938   -0.0961776929288576   -0.00878742358739204   -0.0861084188319916   -0.0412784419736213]";
                     break;
                 case 'exp2':
-                    measurementData.innerHTML = "Exp 2 Measurement data: &mu; = 1.000269996523534, &sigma; = 0.001 <br> <br> Sensitivity Profile: [-0.000875269293278997    -0.00731459529983228    -0.00148377121627049    -0.00610679378617911    -0.002764234786055]";
+                    measurementData.innerHTML = "Exp 2 Measurement data: &mu; = 1.000269996523534, &sigma; = 0.001 <br> <br> Sensitivity Profile: [-0.0115806352723883   -0.103482653093232   -0.00936227847694157   -0.0868614604729281   -0.0315003487921488]";
                     break;
                 case 'exp3':
-                    measurementData.innerHTML = "Exp 3 Measurement data: &mu; = 0.999643531477239, &sigma; = 0.001 <br> <br> Sensitivity Profile: [0.0243452446635186    0.00445944011574573    0.0191282830747092    -0.0221615553767192    -0.0147963500675373]";
+                    measurementData.innerHTML = "Exp 3 Measurement data: &mu; = 0.999643531477239, &sigma; = 0.001 <br> <br> Sensitivity Profile: [0.332242702716837   0.0650741051282292   0.124491935581161   -0.325135750987891   -0.173918446942684]";
                     break;
                 case 'exp4':
-                    measurementData.innerHTML = "Exp 4 Measurement data: &mu; = 1.000408467021769, &sigma; = 0.001 <br> <br> Sensitivity Profile: [0.000558750371350604    -0.00832468264868689    0.00271100562958783    -0.00876990099925012    -0.00821197180377869]";
+                    measurementData.innerHTML = "Exp 4 Measurement data: &mu; = 1.000408467021769, &sigma; = 0.001 <br> <br> Sensitivity Profile: [0.00743935147949400    -0.118514503175895    0.0172135955319640    -0.125526414733213    -0.0941704066710610]";
                     break;
                 default:
                     measurementData.innerHTML = "";
@@ -149,10 +151,26 @@
 <body>
     <div class="container">
         <header>
-            <p>This is an analytical experiment to analyze the performance of inference techniques. Each experiment is a function of five parameters, representing cross sections, and the output is a single scalar representing the eigenvalue.</p>
-            <p>All cross-section parameter variations are assumed to be deviations from <a href="{{ url_for('static', filename='uploads/reference.csv') }}">reference values</a>, with the covariance structure <a href="{{ url_for('static', filename='uploads/Covariance.csv') }}">here</a>.</p>
-            <p>Upon selection, each of the four experiments will reveal a corresponding eigenvalue measurement along with its uncertainty.</p> 
-            <p>The measurements are calculated at the true value for the cross sections, which isn't provided with this benchmark. The true value is selected to be statistically consistent with the prior.</p> 
+            <h3>Performance Benchmark for Error Recovery and Experimental Coverage</h3>
+            <h4>Objective: </h4>
+            <p>The objective of this activity is to develop confidence in data assimilation techniques and adjusted simulations by demonstrating how different methods used by the community characterize error sources in simulations and quantify their impact for the application of interest through the comparison of methods on a toy exercise (the benchmark).</p>
+            <h4>Justification: </h4>
+            <p>The nuclear criticality safety community has been a leader in developing methods for uncertainty characterization in support of the safe handling of nuclear fuel. With the introduction of advanced reactors and fuel cycles concepts, the requirements for uncertainty characterization are expected to be much more stringent due to lower anticipated safety margins with new material concepts and proposed higher enrichments. Such uncertainty characterization involves integration of simulation results with measurements to improve predictions. This integration can be achieved using data assimilation techniques, however necessitates a deeper understanding of how the latter work. The exchange of this understanding between all international stakeholders is necessary to support the ongoing worldwide expansion of nuclear power.</p>
+            <h4>Scope:</h4>
+            <p>The activity consists of a synthetic benchmark of an analytical exercise (a toy case mimicking a group of experiments and an application) with embedded error sources to help compare the performance of state-of-the-art data assimilation techniques. The cases and error sources are intentionally fictitious and designed to facilitate the analysis of the DA method themselves, and to limit the workload for the participants. The performance criteria are the ability to correctly identify and adjust for the embedded error sources and the ability to accurately quantify the experimental coverage for a given application.</p>
+            <h4>Expected Results and Deliverables:</h4>
+            <p>The participants' results include the adjustments proposed by the DA method of their choice, and the improved predictions. Any additional secondary results which may vary from a DA method to another are welcome to be reported by the participants. An overall analysis report detailing the participants' results, and providing insight on the performance of the various methods, will be prepared.</p>
+            <h4>Description</h4>
+            <p>This benchmark consists of 4 experiments and 1 Application, designed to emulate criticality experiments where the measured response is the critical eigenvalue and the sources of uncertainties are the cross-sections. For simplicity, all models are assumed to receive 5 input cross-sections with prior Gaussian uncertainties (represented by <a href="{{ url_for('static', filename='uploads/reference.csv') }}">mean values</a> and <a href="{{ url_for('static', filename='uploads/Covariance.csv') }}">covariance structure</a>). The mean values are used as the reference for calculating the reference eigenvalues for the experiments and the given application. The sensitivity profiles for the experiments and the applications are provided as 5 dimensional vectors, represented as the derivatives of the response eigenvalue with respect to the cross-sections, and normalized by the reference cross-section values and the calculated response. The experimental measurements are provided for all 4 experiments. The goal is to calculate a posteriori estimate for the application response given the experimental models and measurements as follows:</p>
+            <ul>
+                <li>Estimate the posteriori application response with the inclusion of experiment #1 only.</li>
+                <li>Estimate the posterior application response with the inclusion of experiment #1 and #2 only.</li>
+                <li>Estimate the posterior application response with the inclusion of experiment #1 and #3 only.</li>
+                <li>Estimate the posterior application response with the inclusion of experiment #1 and #4 only.</li>
+                <li>Estimate the posterior application response with the inclusion of experiments #1, #2, #3 and #4.</li>
+            </ul>
+
+            
         </header>
         <div class="menu">
             <div class="instructions">
@@ -176,7 +194,7 @@
                     <option value="exp3">Exp 3</option>
                     <option value="exp4">Exp 4</option>
                 </select>
-                <div id="measurement-data" class="measurement-data">Sensitivity Profile: [-0.00420599608217405    -0.0190549303841221    -0.00390352721826810    -0.0169684434594309    -0.0101529705271551]</div>
+                <div id="measurement-data" class="measurement-data">Sensitivity Profile: [-0.0552972267411113    -0.267872674955361    -0.0244746010289696    -0.239827883018197    -0.114968100530782]</div>
                 <button type="submit">Upload and Process</button>
                 <div id="loading" class="hidden">Processing...</div>
             </form>

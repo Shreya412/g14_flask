@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, send_file, send_from_directory
 import os
-from utils.utils import app_gen, exp1, exp2, exp3, exp4  # Adjust import as necessary
+from utils.utils import app_gen, exp1, exp2, exp3, exp4
 import pandas as pd
 
 app = Flask(__name__, template_folder='templates')
@@ -24,12 +24,7 @@ def upload_file():
         filename = file.filename
         file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         file.save(file_path)
-        print(filename, "::::")
-
-        # Read the uploaded file
         df = pd.read_csv(file_path, delimiter=',', header=None)
-
-        # Process the file
         results = []
         for column in df.columns:
             col_values = df[column].values
@@ -47,14 +42,10 @@ def upload_file():
                 else:
                     return "Invalid request"
                 results.append(result)
-        
-        # Create results DataFrame
         results_df = pd.DataFrame([results])
         results_csv_path = os.path.join(app.config['UPLOAD_FOLDER'], f'{requests}.csv')
         results_df.to_csv(results_csv_path, index=False, header=False)
         print(f"Results saved to '{requests}.csv'.")
-
-        # Send the results file
         return send_file(results_csv_path, as_attachment=True)
 
 @app.route('/uploads/<filename>')
