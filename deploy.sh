@@ -15,13 +15,11 @@ sudo mv env .env
 
 sudo apt-get update
 echo "installing python and pip"
-sudo apt-get install -y python3 python3-pip
+sudo apt-get install -y python3 python3-pip python3-venv
 
-# Install application dependencies from requirements.txt
-sudo apt-get install -y python3-venv  # Install Python virtual environment tool
-python3 -m venv venv  # Create a virtual environment named 'venv'
-source venv/bin/activate  # Activate the virtual environment
-pip install -r requirements.txt  # Install dependencies from requirements.txt
+python3 -m venv /tmp/venv
+source /tmp/venv/bin/activate
+pip install -r requirements.txt
 
 # echo "Install application dependencies from requirements.txt"
 # sudo pip install -r requirements.txt
