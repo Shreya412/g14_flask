@@ -58,5 +58,6 @@ sudo rm -rf myapp.sock
 
 
 echo "starting gunicorn"
-sudo gunicorn --workers 3 --bind unix:myapp.sock  app:app --user www-data --group www-data --daemon
+sudo /tmp/venv/bin/gunicorn --workers 3 --bind unix:/var/www/g14-app/myapp.sock app:app --user www-data --group www-data --daemon
+# sudo gunicorn --workers 3 --bind unix:myapp.sock  app:app --user www-data --group www-data --daemon
 echo "started gunicorn 🚀"
