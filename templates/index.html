@@ -93,12 +93,16 @@
 
         function handleFormSubmit(event) {
             event.preventDefault();
-            if (validateForm()) {
-                var form = event.target;
-                var formData = new FormData(form);
+            if (validateForm(event)) {
+                var fileInput = document.querySelector('input[type="file"]');
+                var file = fileInput.files[0];
+                var option = document.getElementById('options').value;
+                var formData = new FormData();
+                formData.append('file', file);
+                formData.append('options', option);
 
-                fetch(form.action, {
-                    method: form.method,
+                fetch('/upload', {
+                    method: 'POST',
                     body: formData
                 }).then(response => response.blob())
                 .then(blob => {
@@ -106,7 +110,7 @@
                     var url = window.URL.createObjectURL(blob);
                     var a = document.createElement('a');
                     a.href = url;
-                    a.download = formData.get('options') + '.csv';
+                    a.download = option + '.csv';
                     document.body.appendChild(a);
                     a.click();
                     a.remove();
